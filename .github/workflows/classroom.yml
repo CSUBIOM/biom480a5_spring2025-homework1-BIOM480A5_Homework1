@@ -1,0 +1,25 @@
+name: GitHub Classroom Workflow
+
+on:
+  - push
+  - workflow_dispatch
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - uses: actions/checkout@v4
+      # Step to download the file from Dropbox
+      - name: Download additional file
+        run: |
+          curl -L -o akhwk1.py "https://www.dropbox.com/scl/fi/9v1n0n5xja7rxcqr1rjy6/akhwk1.py?rlkey=q6vttwo7wyonnx4fxavh8592c&st=hn8gdc4s&dl=0"
+          curl -L -o ht.py "https://www.dropbox.com/scl/fi/ddw0jf3lrsdaera3hoh2d/ht.py?rlkey=x4xdx1xny5kndfd65tdx2jikp&st=3okihlu1&dl=0"
+          
+      - uses: education/autograding@v1
