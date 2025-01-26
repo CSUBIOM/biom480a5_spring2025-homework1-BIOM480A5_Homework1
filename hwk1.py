@@ -43,15 +43,10 @@ dataDict = {'xData':xData,'number':number,'fruit':fruit,'day':day,'string_4':str
 with open(fnDat, 'wb') as file:
     pickle.dump(dataDict, file)
 
-answerDict = {'q1':q1,'q2':q2,'q3':q3,'q4':q4,'q5':q5,'q6':q6,'q7':q7,'q8':q8,
-                'q9':q9,'q10':q10,'q11':q11,'q12':q12}
-
-def saveResults(qs,ans):
+def saveResults():
     fn = 'Hwk1Answers.pkl'
-
-    #Update answerDict
-    answerDict.update({qs:ans})
-
+    answerDict = {'q1':q1,'q2':q2,'q3':q3,'q4':q4,'q5':q5,'q6':q6,'q7':q7,'q8':q8,
+                 'q9':q9,'q10':q10,'q11':q11,'q12':q12}
     with open(fn, 'wb') as file:
         pickle.dump(answerDict, file)
 
